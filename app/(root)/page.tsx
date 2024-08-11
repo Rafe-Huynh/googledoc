@@ -1,28 +1,38 @@
 import { Editor } from '@/components/editor/Editor'
 import Header from '@/components/Header'
+import { SignedIn, UserButton } from '@clerk/nextjs'
 import React from 'react'
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
-const Home = () => {
+import Image from 'next/image'
+import AddDocumentBtn from '@/components/AddDocumentBtn'
+import { clerkClient, currentUser } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
+
+const Home = async () => {
+  const documents = []
+  const clerkUser = await currentUser()
+  if(!clerkUser) redirect('/sign-in')
   return (
-    <div>
-      <Header>
-        <div className='flex w-fit items-center justify-center gap-2'>
-        <p className='document-title'>document title</p>
+    <main className='home-container'> 
+    <Header className='sticky left-0 top-0'>
+      <div className='flex items-center gap-2 lg:gap-4'>
+        Notification
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+    </Header>
+   
+      {documents.length > 0 ? (
+        <div>
+
         </div>
-        <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-      </Header>
-      <Editor /></div>
+      ):(
+        <div className='doccument-list-empty'>
+          <Image src="/assets/icons/doc.svg" alt="doc" width={40} height={40} className='mx-auto'/>
+          <AddDocumentBtn userId = {clerkUser.id} email = {clerkUser.emailAddresses[0].emailAddress}/>
+        </div>
+      ) }
+    </main>
   )
 }
 

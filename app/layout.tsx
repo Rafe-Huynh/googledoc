@@ -12,6 +12,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import {dark} from "@clerk/themes"
+import Provider from "./Provider"
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -35,7 +36,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             fontSans.variable
           )}
         >
+          <Provider >
           {children}
+          </Provider>
         </body>
       </html>
     </ClerkProvider>
