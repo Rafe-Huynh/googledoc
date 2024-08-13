@@ -2,7 +2,7 @@
 const nextConfig = {
 
     images: {
-        remotePatterns: [{protocol: 'https', hostname:'next.config.js'}]
+        remotePatterns: [{protocol: 'https', hostname:'img.clerk.com'}]
     }
 };
 

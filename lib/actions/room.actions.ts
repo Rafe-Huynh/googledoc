@@ -42,4 +42,17 @@ export const getDocument = async ({ roomId, userId }: { roomId: string, userId: 
         console.log(`${error} while creating a room `)
     }
 
-} 
+}
+export const updateDocument = async (roomId: string, title:string) => {
+    try {
+        const updatedRoom = await liveblocks.updateRoom(roomId, {
+            metadata: {
+                title
+            }
+        })
+        revalidatePath(`/documents/${roomId}`)
+        return parseStringify(updatedRoom)
+    } catch (error) {
+        console.log(error)
+    }
+}
