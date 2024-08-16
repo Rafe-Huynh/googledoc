@@ -13,6 +13,7 @@ import { Input } from './ui/input';
 import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import { updateDocument } from '@/lib/actions/room.actions';
+import ShareModal from './ShareModal';
   
 const CollaborativeRoom = ({roomId, roomMetadata, users, currentUserType} : CollaborativeRoomProps) => {
   const [editing, setEditing] = useState(false)
@@ -100,7 +101,7 @@ const CollaborativeRoom = ({roomId, roomMetadata, users, currentUserType} : Coll
         </div>
         <div className='flex w-full flex-1 justify-end gap-2 sm:gap-3'>
           <ActiveCollaborators />
-       
+          <ShareModal roomId={roomId} collaborators={users} creatorId={roomMetadata.creatorId} currentUserType={currentUserType}/>
         <SignedOut>
             <SignInButton />
           </SignedOut>
