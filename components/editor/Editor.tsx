@@ -23,8 +23,8 @@ function Placeholder() {
 }
 
 export function Editor({ roomId, currentUserType }: { roomId: string, currentUserType: UserType }) {
-  const status = useEditorStatus()
-  const {threads} = useThreads()
+  const status = useEditorStatus();
+  const { threads } = useThreads();
   const initialConfig = liveblocksConfig({
     namespace: 'Editor',
     nodes: [HeadingNode],
@@ -35,7 +35,7 @@ export function Editor({ roomId, currentUserType }: { roomId: string, currentUse
     theme: Theme,
     editable: currentUserType === 'editor'
   });
-
+  
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <div className="editor-container size-full">
@@ -63,8 +63,6 @@ export function Editor({ roomId, currentUserType }: { roomId: string, currentUse
             <FloatingThreads threads={threads}/>
           </LiveblocksPlugin>
         </div>
-
-
       </div>
     </LexicalComposer>
   );
