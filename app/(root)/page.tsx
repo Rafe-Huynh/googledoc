@@ -10,6 +10,7 @@ import { getDocuments } from '@/lib/actions/room.actions'
 import Link from 'next/link'
 import { metadata } from '../layout'
 import { dateConverter } from '@/lib/utils'
+import {DeleteModal} from '@/components/DeleteModal'
 
 const Home = async () => {
   
@@ -51,6 +52,7 @@ const Home = async () => {
                       </p>
                     </div>
                   </Link>
+                  <DeleteModal roomId = {document.id}/>
                 </li>
               ))}
             </ul>

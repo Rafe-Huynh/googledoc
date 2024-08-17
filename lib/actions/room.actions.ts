@@ -4,6 +4,7 @@ import { title } from 'process'
 import { liveblocks } from '../liveblocks'
 import { revalidatePath } from 'next/cache'
 import { getAccessType, parseStringify } from '../utils'
+import { redirect } from 'next/navigation'
 
 export const createDocument = async ({ userId, email }: CreateDocumentParams) => {
     const roomId = nanoid()
@@ -102,3 +103,12 @@ export const removeCollaborator = async({roomId, email} : {roomId:string, email:
         console.log(`${error} removing`)
     }
 }
+export const deleteDocument = async (roomId: string) => {
+    try {
+      await liveblocks.deleteRoom(roomId);
+      revalidatePath('/');
+      redirect('/');
+    } catch (error) {
+      console.log(`Error happened while deleting a room: ${error}`);
+    }
+  }
