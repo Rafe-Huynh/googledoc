@@ -1,3 +1,13 @@
+Tech Stack
+</br>
+Next.js</br>
+TypeScript</br>
+Liveblocks</br>
+Lexical Editor</br>
+ShadCN</br>
+Tailwind CSS</br>
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
