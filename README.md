@@ -15,10 +15,10 @@ Features
 
 👉 Documents Management</br>
 
-Create Documents: Users can create new documents, which are automatically saved and listed.</br>
-Delete Documents: Users can delete documents they own.</br>
-Share Documents: Users can share documents via email or link with view/edit permissions.</br>
-List Documents: Display all documents owned or shared with the user, with search and sorting functionalities.</br>
+           - Create Documents: Users can create new documents, which are automatically saved and listed.</br>
+           - Delete Documents: Users can delete documents they own.</br>
+           - Share Documents: Users can share documents via email or link with view/edit permissions.</br>
+           - List Documents: Display all documents owned or shared with the user, with search and sorting functionalities.</br>
 👉 Comments: Users can add inline and general comments, with threading for discussions.</br>
 
 👉 Active Collaborators on Text Editor: Show active collaborators with real-time presence indicators.</br>
